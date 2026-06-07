@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopee 利润计算器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Shopee Seller Toolkit</p>
+      <h1 id="page-title">Shopee 利润计算器</h1>
+      <p class="hero-copy">输入成本、运费、佣金和售价，实时计算毛利润、净利润与利润率，帮助你快速评估商品定价。</p>
+    </section>
+
+    <section class="calculator-card" aria-label="利润计算表单">
+      <form id="profit-form" class="input-grid">
+        <label class="field">
+          <span>商品成本</span>
+          <div class="input-wrap">
+            <span class="prefix">¥</span>
+            <input type="number" id="product-cost" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+          </div>
+        </label>
+
+        <label class="field">
+          <span>国内运费</span>
+          <div class="input-wrap">
+            <span class="prefix">¥</span>
+            <input type="number" id="domestic-shipping" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+          </div>
+        </label>
+
+        <label class="field">
+          <span>国际运费</span>
+          <div class="input-wrap">
+            <span class="prefix">¥</span>
+            <input type="number" id="international-shipping" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+          </div>
+        </label>
+
+        <label class="field">
+          <span>平台佣金比例</span>
+          <div class="input-wrap">
+            <input type="number" id="commission-rate" min="0" max="100" step="0.01" placeholder="0.00" inputmode="decimal">
+            <span class="suffix">%</span>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>广告费</span>
+          <div class="input-wrap">
+            <span class="prefix">¥</span>
+            <input type="number" id="ad-cost" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+          </div>
+        </label>
+
+        <label class="field">
+          <span>售价</span>
+          <div class="input-wrap">
+            <span class="prefix">¥</span>
+            <input type="number" id="sale-price" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+          </div>
+        </label>
+
+        <div class="actions">
+          <button type="reset" class="secondary-btn">重置</button>
+          <button type="submit" class="primary-btn">计算利润</button>
+        </div>
+      </form>
+
+      <aside class="result-panel" aria-live="polite" aria-label="计算结果">
+        <div class="result-item highlight">
+          <span>毛利润</span>
+          <strong id="gross-profit">¥0.00</strong>
+        </div>
+        <div class="result-item">
+          <span>净利润</span>
+          <strong id="net-profit">¥0.00</strong>
+        </div>
+        <div class="result-item">
+          <span>利润率</span>
+          <strong id="profit-margin">0.00%</strong>
+        </div>
+        <p class="formula-note">毛利润 = 售价 - 商品成本 - 国内运费 - 国际运费；净利润会继续扣除平台佣金与广告费。</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
